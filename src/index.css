@@ -4,41 +4,42 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 218 30% 8%;
+    --foreground: 210 20% 96%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 218 25% 12%;
+    --card-foreground: 210 20% 96%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 218 25% 12%;
+    --popover-foreground: 210 20% 96%;
 
-    --primary: 220 60% 14%;
-    --primary-foreground: 45 60% 88%;
+    --primary: 24 95% 53%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 218 20% 16%;
+    --secondary-foreground: 210 20% 96%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 218 20% 16%;
+    --muted-foreground: 215 15% 55%;
 
-    --accent: 44 70% 52%;
-    --accent-foreground: 220 60% 14%;
+    --accent: 218 20% 16%;
+    --accent-foreground: 210 20% 96%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 88%;
-    --input: 214.3 31.8% 88%;
-    --ring: 220 60% 14%;
+    --border: 218 20% 20%;
+    --input: 218 20% 16%;
+    --ring: 24 95% 53%;
+    --radius: 0.125rem;
 
-    --radius: 0.25rem;
-
-    --navy: 220 60% 14%;
-    --navy-light: 220 45% 20%;
-    --gold: 44 70% 52%;
-    --gold-light: 44 80% 68%;
-    --cream: 45 40% 96%;
+    --dark: 218 30% 8%;
+    --dark-card: 218 25% 12%;
+    --dark-border: 218 20% 20%;
+    --orange: 24 95% 53%;
+    --orange-dim: 24 80% 42%;
+    --slate: 215 20% 55%;
+    --light: 210 20% 96%;
   }
 }
 
@@ -46,80 +47,105 @@
   * {
     @apply border-border;
   }
-
   html {
     scroll-behavior: smooth;
   }
-
   body {
-    @apply bg-background text-foreground;
     font-family: "IBM Plex Sans", sans-serif;
+    background-color: hsl(var(--dark));
+    color: hsl(var(--light));
   }
 }
 
 @layer components {
   .font-display {
-    font-family: "Cormorant Garamond", serif;
+    font-family: "Oswald", sans-serif;
+    letter-spacing: 0.02em;
   }
 
-  .nav-link {
-    @apply relative text-sm tracking-widest uppercase transition-colors duration-300;
+  .nav-item {
+    @apply text-xs tracking-[0.2em] uppercase text-white/50 hover:text-[hsl(var(--orange))] transition-colors duration-200 cursor-pointer;
+  }
+  .nav-item.active {
+    @apply text-[hsl(var(--orange))];
   }
 
-  .nav-link::after {
-    content: "";
-    @apply absolute bottom-0 left-0 w-0 h-px bg-[hsl(var(--gold))] transition-all duration-300;
+  .section-tag {
+    @apply text-[hsl(var(--orange))] text-xs tracking-[0.35em] uppercase font-medium mb-3;
+  }
+  .section-title {
+    font-family: "Oswald", sans-serif;
+    @apply text-4xl md:text-5xl font-semibold text-white leading-tight;
+  }
+  .divider {
+    @apply w-10 h-0.5 bg-[hsl(var(--orange))] mt-4 mb-8;
   }
 
-  .nav-link:hover::after,
-  .nav-link.active::after {
-    @apply w-full;
+  .dark-card {
+    background-color: hsl(var(--dark-card));
+    border: 1px solid hsl(var(--dark-border));
+    @apply p-6 transition-all duration-300;
+  }
+  .dark-card:hover {
+    border-color: hsl(24 95% 53% / 0.5);
   }
 
-  .section-line {
-    @apply w-12 h-0.5 bg-[hsl(var(--gold))];
+  .btn-orange {
+    background-color: hsl(var(--orange));
+    @apply text-white px-7 py-3 text-xs tracking-[0.2em] uppercase font-semibold transition-all duration-300 inline-block;
+  }
+  .btn-orange:hover {
+    background-color: hsl(var(--orange-dim));
+  }
+
+  .btn-outline {
+    border: 1px solid hsl(var(--dark-border));
+    @apply text-white/70 px-7 py-3 text-xs tracking-[0.2em] uppercase font-medium transition-all duration-300 inline-block;
+  }
+  .btn-outline:hover {
+    border-color: hsl(var(--orange));
+    @apply text-white;
+  }
+
+  .field {
+    width: 100%;
+    background: hsl(var(--dark));
+    border: 1px solid hsl(var(--dark-border));
+    @apply px-4 py-3 text-sm text-white outline-none transition-colors duration-200;
+  }
+  .field:focus {
+    border-color: hsl(var(--orange));
+  }
+  .field::placeholder {
+    color: hsl(var(--slate));
   }
 
   .animate-fade-in {
-    animation: fadeIn 0.7s ease forwards;
+    animation: fadeUp 0.7s ease both;
   }
-
-  @keyframes fadeIn {
+  @keyframes fadeUp {
     from {
       opacity: 0;
-      transform: translateY(24px);
+      transform: translateY(28px);
     }
     to {
       opacity: 1;
       transform: translateY(0);
     }
   }
-
-  .stagger-1 {
+  .d1 {
     animation-delay: 0.1s;
   }
-  .stagger-2 {
+  .d2 {
     animation-delay: 0.25s;
   }
-  .stagger-3 {
+  .d3 {
     animation-delay: 0.4s;
   }
-  .stagger-4 {
+  .d4 {
     animation-delay: 0.55s;
   }
-  .stagger-5 {
+  .d5 {
     animation-delay: 0.7s;
-  }
-
-  .card-service {
-    @apply border border-[hsl(var(--border))] p-8 transition-all duration-300 hover:border-[hsl(var(--gold))] hover:shadow-lg cursor-default;
-  }
-
-  .btn-primary {
-    @apply bg-[hsl(var(--navy))] text-[hsl(var(--cream))] px-8 py-3 text-sm tracking-widest uppercase transition-all duration-300 hover:bg-[hsl(var(--gold))] hover:text-[hsl(var(--navy))];
-  }
-
-  .input-field {
-    @apply w-full border border-[hsl(var(--border))] bg-transparent px-4 py-3 text-sm outline-none transition-colors duration-200 focus:border-[hsl(var(--gold))] placeholder:text-[hsl(var(--muted-foreground))];
   }
 }

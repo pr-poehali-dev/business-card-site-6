@@ -274,7 +274,7 @@ export default function Index() {
 
           {/* Партнёры */}
           <div className="mt-16 pt-10" style={{ borderTop: "1px solid hsl(var(--dark-border))" }}>
-            <p className="text-xs tracking-[0.3em] uppercase text-white/30 mb-8 text-center">Официальные партнёры</p>
+            <p className="text-xs tracking-[0.3em] uppercase text-white/30 mb-8 text-center">Сотрудничаем</p>
             <div className="flex flex-wrap justify-center gap-8 md:gap-16">
               {partners.map((p) => (
                 <div key={p} className="font-display text-xl font-bold tracking-widest uppercase" style={{ color: "hsl(var(--slate))" }}>

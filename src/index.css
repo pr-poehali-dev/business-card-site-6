@@ -4,42 +4,47 @@
 
 @layer base {
   :root {
-    --background: 218 30% 8%;
-    --foreground: 210 20% 96%;
+    --background: 0 0% 5%;
+    --foreground: 210 15% 92%;
 
-    --card: 218 25% 12%;
-    --card-foreground: 210 20% 96%;
+    --card: 0 0% 8%;
+    --card-foreground: 210 15% 92%;
 
-    --popover: 218 25% 12%;
-    --popover-foreground: 210 20% 96%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 210 15% 92%;
 
     --primary: 213 85% 48%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 218 20% 16%;
-    --secondary-foreground: 210 20% 96%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 210 15% 92%;
 
-    --muted: 218 20% 16%;
-    --muted-foreground: 215 15% 55%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 215 10% 50%;
 
-    --accent: 218 20% 16%;
-    --accent-foreground: 210 20% 96%;
+    --accent: 0 0% 10%;
+    --accent-foreground: 210 15% 92%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 218 20% 20%;
-    --input: 218 20% 16%;
+    --border: 0 0% 14%;
+    --input: 0 0% 10%;
     --ring: 213 85% 48%;
     --radius: 0.125rem;
 
-    --dark: 218 30% 8%;
-    --dark-card: 218 25% 12%;
-    --dark-border: 218 20% 20%;
-    --orange: 213 85% 48%;
-    --orange-dim: 213 75% 38%;
-    --slate: 215 20% 55%;
-    --light: 210 20% 96%;
+    /* Brand */
+    --black: 0 0% 4%;
+    --black-card: 0 0% 8%;
+    --black-card2: 0 0% 11%;
+    --black-border: 0 0% 16%;
+    --blue: 213 85% 48%;
+    --blue-dim: 213 75% 36%;
+    --blue-bright: 213 90% 58%;
+    --gold: 43 90% 52%;
+    --gold-dim: 43 75% 40%;
+    --slate: 215 12% 48%;
+    --light: 210 15% 92%;
   }
 }
 
@@ -52,7 +57,7 @@
   }
   body {
     font-family: "IBM Plex Sans", sans-serif;
-    background-color: hsl(var(--dark));
+    background-color: hsl(var(--black));
     color: hsl(var(--light));
   }
 }
@@ -60,73 +65,137 @@
 @layer components {
   .font-display {
     font-family: "Oswald", sans-serif;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.03em;
   }
 
+  /* Золотая полоса-акцент */
+  .gold-stripe {
+    height: 3px;
+    background: linear-gradient(
+      90deg,
+      hsl(var(--gold)),
+      hsl(var(--blue)),
+      transparent
+    );
+  }
+
+  .gold-stripe-v {
+    width: 3px;
+    background: linear-gradient(
+      180deg,
+      hsl(var(--gold)),
+      hsl(var(--blue)),
+      transparent
+    );
+  }
+
+  /* NAV */
   .nav-item {
-    @apply text-xs tracking-[0.2em] uppercase text-white/50 hover:text-[hsl(var(--orange))] transition-colors duration-200 cursor-pointer;
+    @apply text-[11px] tracking-[0.22em] uppercase text-white/45 hover:text-white transition-colors duration-200 cursor-pointer font-medium;
   }
   .nav-item.active {
-    @apply text-[hsl(var(--orange))];
+    color: hsl(var(--gold));
   }
 
+  /* SECTIONS */
   .section-tag {
-    @apply text-[hsl(var(--orange))] text-xs tracking-[0.35em] uppercase font-medium mb-3;
+    font-family: "Oswald", sans-serif;
+    color: hsl(var(--gold));
+    @apply text-xs tracking-[0.4em] uppercase font-medium mb-2;
   }
   .section-title {
     font-family: "Oswald", sans-serif;
     @apply text-4xl md:text-5xl font-semibold text-white leading-tight;
   }
   .divider {
-    @apply w-10 h-0.5 bg-[hsl(var(--orange))] mt-4 mb-8;
+    height: 2px;
+    width: 48px;
+    background: linear-gradient(90deg, hsl(var(--gold)), hsl(var(--blue)));
+    @apply mt-4 mb-8;
   }
 
+  /* CARDS */
   .dark-card {
-    background-color: hsl(var(--dark-card));
-    border: 1px solid hsl(var(--dark-border));
-    @apply p-6 transition-all duration-300;
+    background-color: hsl(var(--black-card));
+    border: 1px solid hsl(var(--black-border));
+    @apply p-6 transition-all duration-300 relative overflow-hidden;
+  }
+  .dark-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      hsl(var(--gold) / 0),
+      hsl(var(--gold) / 0)
+    );
+    transition: background 0.3s;
+  }
+  .dark-card:hover::before {
+    background: linear-gradient(90deg, hsl(var(--gold)), hsl(var(--blue)));
   }
   .dark-card:hover {
-    border-color: hsl(24 95% 53% / 0.5);
+    border-color: hsl(var(--black-border));
+    box-shadow: 0 0 24px hsl(var(--blue) / 0.08);
   }
 
-  .btn-orange {
-    background-color: hsl(var(--orange));
+  /* BUTTONS */
+  .btn-primary {
+    background: linear-gradient(135deg, hsl(var(--blue)), hsl(var(--blue-dim)));
+    border: 1px solid hsl(var(--blue) / 0.5);
     @apply text-white px-7 py-3 text-xs tracking-[0.2em] uppercase font-semibold transition-all duration-300 inline-block;
   }
-  .btn-orange:hover {
-    background-color: hsl(var(--orange-dim));
+  .btn-primary:hover {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--blue-bright)),
+      hsl(var(--blue))
+    );
+    box-shadow: 0 0 20px hsl(var(--blue) / 0.4);
+  }
+
+  .btn-gold {
+    background: linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dim)));
+    @apply text-black px-7 py-3 text-xs tracking-[0.2em] uppercase font-bold transition-all duration-300 inline-block;
+  }
+  .btn-gold:hover {
+    box-shadow: 0 0 20px hsl(var(--gold) / 0.5);
   }
 
   .btn-outline {
-    border: 1px solid hsl(var(--dark-border));
-    @apply text-white/70 px-7 py-3 text-xs tracking-[0.2em] uppercase font-medium transition-all duration-300 inline-block;
+    border: 1px solid hsl(var(--black-border));
+    @apply text-white/60 px-7 py-3 text-xs tracking-[0.2em] uppercase font-medium transition-all duration-300 inline-block;
   }
   .btn-outline:hover {
-    border-color: hsl(var(--orange));
-    @apply text-white;
+    border-color: hsl(var(--gold));
+    color: hsl(var(--gold));
   }
 
+  /* INPUTS */
   .field {
     width: 100%;
-    background: hsl(var(--dark));
-    border: 1px solid hsl(var(--dark-border));
+    background: hsl(var(--black));
+    border: 1px solid hsl(var(--black-border));
     @apply px-4 py-3 text-sm text-white outline-none transition-colors duration-200;
   }
   .field:focus {
-    border-color: hsl(var(--orange));
+    border-color: hsl(var(--blue));
   }
   .field::placeholder {
     color: hsl(var(--slate));
   }
 
+  /* ANIMATIONS */
   .animate-fade-in {
-    animation: fadeUp 0.7s ease both;
+    animation: fadeUp 0.75s ease both;
   }
   @keyframes fadeUp {
     from {
       opacity: 0;
-      transform: translateY(28px);
+      transform: translateY(30px);
     }
     to {
       opacity: 1;

@@ -70,11 +70,13 @@ export default function Index() {
       <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md" style={{ background: "hsl(218 30% 8% / 0.95)", borderBottom: "1px solid hsl(var(--dark-border))" }}>
         <div className="max-w-7xl mx-auto px-5 md:px-10 h-14 flex items-center justify-between gap-6">
           {/* Логотип */}
-          <div className="flex items-center gap-3 flex-shrink-0">
-            <div className="w-7 h-7 flex items-center justify-center" style={{ background: "hsl(var(--orange))" }}>
-              <Icon name="Zap" size={14} className="text-white" />
-            </div>
-            <span className="font-display text-base font-semibold text-white tracking-wide">СВ-ТехноГрупп</span>
+          <div className="flex items-center flex-shrink-0">
+            <img
+              src="https://cdn.poehali.dev/projects/b071f7ce-a3a3-4291-ae4f-4838366629c0/bucket/0e98e1ab-5023-43d7-af41-64828dccf267.jpg"
+              alt="СВ-ТехноГрупп"
+              className="h-9 w-auto object-contain"
+              style={{ filter: "brightness(1.1) saturate(1.1)" }}
+            />
           </div>
 
           {/* Десктоп навигация */}
@@ -435,11 +437,12 @@ export default function Index() {
       {/* ─── ФУТЕР ─── */}
       <footer className="py-6" style={{ background: "hsl(var(--dark))", borderTop: "1px solid hsl(var(--dark-border))" }}>
         <div className="max-w-7xl mx-auto px-5 md:px-10 flex flex-col md:flex-row items-center justify-between gap-3">
-          <div className="flex items-center gap-2">
-            <div className="w-5 h-5 flex items-center justify-center" style={{ background: "hsl(var(--orange))" }}>
-              <Icon name="Zap" size={10} className="text-white" />
-            </div>
-            <span className="font-display text-sm text-white/50">ООО «СВ-ТехноГрупп»</span>
+          <div className="flex items-center">
+            <img
+              src="https://cdn.poehali.dev/projects/b071f7ce-a3a3-4291-ae4f-4838366629c0/bucket/0e98e1ab-5023-43d7-af41-64828dccf267.jpg"
+              alt="СВ-ТехноГрупп"
+              className="h-7 w-auto object-contain opacity-60"
+            />
           </div>
           <p className="text-xs text-white/25">© 2026 · Поставки БПЛА-комплектующих · Производство АКБ</p>
         </div>

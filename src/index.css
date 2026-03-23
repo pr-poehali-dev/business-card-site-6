@@ -13,7 +13,7 @@
     --popover: 218 25% 12%;
     --popover-foreground: 210 20% 96%;
 
-    --primary: 24 95% 53%;
+    --primary: 213 85% 48%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 218 20% 16%;
@@ -30,14 +30,14 @@
 
     --border: 218 20% 20%;
     --input: 218 20% 16%;
-    --ring: 24 95% 53%;
+    --ring: 213 85% 48%;
     --radius: 0.125rem;
 
     --dark: 218 30% 8%;
     --dark-card: 218 25% 12%;
     --dark-border: 218 20% 20%;
-    --orange: 24 95% 53%;
-    --orange-dim: 24 80% 42%;
+    --orange: 213 85% 48%;
+    --orange-dim: 213 75% 38%;
     --slate: 215 20% 55%;
     --light: 210 20% 96%;
   }

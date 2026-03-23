@@ -5,6 +5,8 @@ const IMG_DRONE =
   "https://cdn.poehali.dev/projects/b071f7ce-a3a3-4291-ae4f-4838366629c0/files/c06ca9ed-a35a-469c-a1c4-a9515abb19ff.jpg";
 const IMG_BATTERY =
   "https://cdn.poehali.dev/projects/b071f7ce-a3a3-4291-ae4f-4838366629c0/files/181e9320-5a18-4a93-9e88-567d23368650.jpg";
+const IMG_BATTERIES_REAL =
+  "https://cdn.poehali.dev/projects/b071f7ce-a3a3-4291-ae4f-4838366629c0/files/fe6ad2f0-26c4-4b62-8b16-7a493e8ed01d.jpg";
 
 const navItems = [
   { id: "hero", label: "Главная" },
@@ -23,9 +25,9 @@ const advantages = [
 ];
 
 const batteries = [
-  { model: "6S3P", cap: "12 000 мАч", desc: "Оптимальная ёмкость для средней продолжительности полёта" },
-  { model: "6S2P", cap: "8 000 мАч", desc: "Компактное решение для лёгких дронов" },
-  { model: "6S2P", cap: "16 000 мАч", desc: "Максимальная автономность для профессиональных задач" },
+  { model: "6S3P", cap: "12 000 мАч", desc: "Пример исполнения. Ёмкость, конфигурация и форм-фактор подбираются под ваше техническое задание" },
+  { model: "6S2P", cap: "8 000 мАч", desc: "Пример исполнения. Производим облегчённые сборки для дронов с ограничением по массе" },
+  { model: "6S2P", cap: "16 000 мАч", desc: "Пример исполнения. Изготавливаем аккумуляторы любой ёмкости под специфику вашего проекта" },
 ];
 
 const catalog = [
@@ -68,13 +70,13 @@ export default function Index() {
 
       {/* ─── ШАПКА ─── */}
       <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md" style={{ background: "hsl(218 30% 8% / 0.95)", borderBottom: "1px solid hsl(var(--dark-border))" }}>
-        <div className="max-w-7xl mx-auto px-5 md:px-10 h-14 flex items-center justify-between gap-6">
+        <div className="max-w-7xl mx-auto px-5 md:px-10 h-16 flex items-center justify-between gap-6">
           {/* Логотип */}
           <div className="flex items-center flex-shrink-0">
             <img
               src="https://cdn.poehali.dev/projects/b071f7ce-a3a3-4291-ae4f-4838366629c0/bucket/0e98e1ab-5023-43d7-af41-64828dccf267.jpg"
               alt="СВ-ТехноГрупп"
-              className="h-9 w-auto object-contain"
+              className="h-14 w-auto object-contain"
               style={{ filter: "brightness(1.1) saturate(1.1)" }}
             />
           </div>
@@ -216,7 +218,7 @@ export default function Index() {
               </p>
 
               {/* Линейка АКБ */}
-              <div className="space-y-3">
+              <div className="space-y-3 mb-6">
                 {batteries.map((b) => (
                   <div key={b.cap} className="flex items-center gap-4 p-4" style={{ background: "hsl(var(--dark-card))", border: "1px solid hsl(var(--dark-border))" }}>
                     <div className="flex-shrink-0 text-center w-24">
@@ -227,6 +229,19 @@ export default function Index() {
                     <p className="text-xs text-white/55 leading-relaxed">{b.desc}</p>
                   </div>
                 ))}
+              </div>
+
+              {/* Фото аккумуляторов */}
+              <div className="relative" style={{ border: "1px solid hsl(var(--dark-border))" }}>
+                <img
+                  src={IMG_BATTERIES_REAL}
+                  alt="Аккумуляторы СВ-ТехноГрупп"
+                  className="w-full object-cover"
+                  style={{ aspectRatio: "16/7" }}
+                />
+                <div className="absolute inset-0 flex items-end p-4" style={{ background: "linear-gradient(to top, hsl(var(--dark) / 0.8) 0%, transparent 60%)" }}>
+                  <span className="text-xs tracking-widest uppercase text-white/60">Продукция собственного производства</span>
+                </div>
               </div>
             </div>
           </div>
@@ -354,7 +369,7 @@ export default function Index() {
             {/* Контакты */}
             <div className="space-y-8">
               <div>
-                <div className="text-xs tracking-widest uppercase text-white/30 mb-4">Коммерческий директор</div>
+                <div className="text-xs tracking-widest uppercase text-white/30 mb-4">Генеральный директор</div>
                 <div className="space-y-3">
                   <a href="tel:89867419924" className="flex items-center gap-3 group">
                     <div className="w-9 h-9 flex items-center justify-center" style={{ background: "hsl(var(--dark))", border: "1px solid hsl(var(--dark-border))" }}>

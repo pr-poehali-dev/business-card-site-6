@@ -3,6 +3,8 @@ import Icon from "@/components/ui/icon";
 
 const LOGO =
   "https://cdn.poehali.dev/projects/b071f7ce-a3a3-4291-ae4f-4838366629c0/bucket/0e98e1ab-5023-43d7-af41-64828dccf267.jpg";
+const IMG_FLYING_DRONE =
+  "https://cdn.poehali.dev/projects/b071f7ce-a3a3-4291-ae4f-4838366629c0/files/193a68da-f6db-45a5-be52-0939c75573c9.jpg";
 const IMG_DRONE_HERO =
   "https://cdn.poehali.dev/projects/b071f7ce-a3a3-4291-ae4f-4838366629c0/files/c0a80799-9679-4bb2-ad89-a92c5f5991fc.jpg";
 const IMG_DRONE2 =
@@ -70,6 +72,20 @@ export default function Index() {
 
   return (
     <div className="min-h-screen" style={{ background: "hsl(var(--black))", color: "hsl(var(--light))" }}>
+
+      {/* ═══════════════ ЛЕТЯЩИЙ ДРОН (фоновый слой) ═══════════════ */}
+      <div className="fixed inset-0 z-10 overflow-hidden" style={{ pointerEvents: "none" }}>
+        <div className="drone-fly absolute" style={{ top: "18%", left: "5%" }}>
+          <div className="drone-hover">
+            <img
+              src={IMG_FLYING_DRONE}
+              alt=""
+              className="drone-glow"
+              style={{ width: "180px", opacity: 0.22, mixBlendMode: "screen" }}
+            />
+          </div>
+        </div>
+      </div>
 
       {/* ═══════════════ ШАПКА ═══════════════ */}
       <header className="fixed top-0 left-0 right-0 z-50" style={{ background: "hsl(0 0% 4% / 0.97)", borderBottom: "1px solid hsl(var(--black-border))" }}>

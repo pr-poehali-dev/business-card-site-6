@@ -147,10 +147,20 @@ export default function Index() {
 
       {/* ═══════════════ HERO ═══════════════ */}
       <section id="hero" className="relative min-h-screen flex items-end overflow-hidden" style={{ paddingTop: "120px" }}>
-        {/* Фон — дроны */}
+        {/* Фон — видео с дроном */}
         <div className="absolute inset-0">
-          <img src={IMG_DRONE_HERO} alt="" className="w-full h-full object-cover" style={{ opacity: 0.35 }} />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, hsl(0 0% 4% / 0.6) 0%, hsl(0 0% 4% / 0.3) 40%, hsl(0 0% 4% / 0.9) 85%, hsl(0 0% 4%) 100%)" }} />
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover"
+            style={{ opacity: 0.45 }}
+            poster={IMG_DRONE_HERO}
+          >
+            <source src="https://cdn.pixabay.com/video/2023/09/22/182060-868498157_large.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, hsl(0 0% 4% / 0.55) 0%, hsl(0 0% 4% / 0.25) 40%, hsl(0 0% 4% / 0.88) 85%, hsl(0 0% 4%) 100%)" }} />
           {/* Синяя подсветка */}
           <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 60% 50% at 70% 40%, hsl(213 85% 48% / 0.12), transparent)" }} />
         </div>
